@@ -13,8 +13,9 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark">&#9638;</span>
-        Bharadwaj <span class="logo-accent">Building Construction</span>
+        <!--<span class="logo-mark">&#9638;</span>-->
+        <img src="images/logo_white_new.png" alt="Bharadwaj Building Constructions" class="logo-img" />
+        Bharadwaj <span class="logo-accent">Building Constructions</span>
       </a>
       <nav class="main-nav" id="mainNav">
         <a href="index.html" data-nav="home">Home</a>
@@ -43,25 +44,28 @@
   <section class="section section-dark">
     <div class="container">
       <div class="projects-grid">
-        <article class="project-card">
-          <img src="images/project-home.jpg" alt="Sri Nilayam independent house, Jaggaiahpet" loading="lazy" />
+        <article class="project-card" data-project="sri-nilayam">
+          <img src="images/sri_nilayam.jpeg" alt="Sri Nilayam independent house, Jaggaiahpet" loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Residential &middot; Jaggaiahpet</p>
             <h3>Sri Nilayam</h3>
             <p>2-storey west-facing independent house on a 210 sq yd plot in a premium neighbourhood &mdash; our standing example of quality construction, from foundation to elevation.</p>
           </div>
         </article>
-        <article class="project-card">
-          <img src="images/project-kitchen.jpg" alt="Happy Home duplex interior, Dollars Colony" loading="lazy" />
+        <article class="project-card" data-project="happy-home">
+          <img src="images/happy_home.jpeg" alt="Happy Home duplex interior, Dollars Colony" loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Residential &middot; Dollars Colony</p>
             <h3>Happy Home Duplex</h3>
             <p>West-facing 2-storey duplex with elegant interiors, outstanding exteriors and high-quality construction &mdash; built with UltraTech cement and Vizag steel.</p>
           </div>
         </article>
-        <article class="project-card">
-          <img src="images/project-commercial.jpg" alt="Gated community independent houses, Torraguntapalem" loading="lazy" />
+        <article class="project-card" data-project="bhuvanagiri">
+          <img src="images/modal_home.jpeg" alt="Gated community independent houses, Torraguntapalem" loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Gated Community &middot; Torraguntapalem</p>
             <h3>Bhuvanagiri Township Homes</h3>
             <p>2 &amp; 3 BHK independent houses in a secure gated community with 24x7 security, children's play area and wide roads &mdash; premium construction, ready to occupy.</p>
@@ -93,7 +97,37 @@
       <p class="footer-links"><a href="index.html">Home</a> &middot; <a href="services.html">Services</a> &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="https://www.instagram.com/bharadwajconstructions" target="_blank" rel="noopener">Instagram</a></p>
     </div>
   </footer>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project gallery">
+  <div class="lightbox-backdrop" data-close></div>
+  <figure class="lightbox-box">
+    <button class="lightbox-close" data-close aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+    <div class="lightbox-media" id="lbMedia"></div>
+    <button class="lightbox-next" id="lbNext" aria-label="Next">&#10095;</button>
+    <figcaption>
+      <p class="lightbox-caption" id="lbCaption"></p>
+      <p class="lightbox-counter" id="lbCounter"></p>
+    </figcaption>
+  </figure>
+</div>
 
-  <script src="script.js"></script>
+<script>
+// Gallery data — add/remove photos & videos per project here.
+const PROJECT_GALLERIES = {
+  "sri-nilayam": [
+    { type: "image", src: "images/sri_nilayam.jpeg", caption: "Front elevation" },
+    { type: "image", src: "images/project-kitchen.jpg", caption: "Kitchen" }
+  ],
+  "happy-home": [
+    { type: "image", src: "images/happy_home.jpeg", caption: "Happy Home Duplex, Dollars Colony" },
+    { type: "image", src: "images/site_work.jpeg", caption: "Site Work" }
+  ],
+  "bhuvanagiri": [
+    { type: "image", src: "images/modal_home.jpeg", caption: "Bhuvanagiri Township" },
+    { type: "video", src: "images/model_video.mp4", caption: "Model home walkthrough" }
+  ]
+};
+</script>
+<script src="script.js"></script>
 </body>
 </html>

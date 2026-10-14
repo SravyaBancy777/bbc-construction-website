@@ -74,3 +74,56 @@ if (form) {
     form.reset();
   });
 }
+
+// Project gallery lightbox (projects page only)
+(function () {
+  var lightbox = document.getElementById("lightbox");
+  if (!lightbox || typeof PROJECT_GALLERIES === "undefined") return;
+
+  var mediaBox = document.getElementById("lbMedia");
+  var captionEl = document.getElementById("lbCaption");
+  var counterEl = document.getElementById("lbCounter");
+  var items = [], index = 0;
+
+  function render() {
+    var item = items[index];
+    mediaBox.innerHTML = "";
+    var el;
+    if (item.type === "video") {
+      el = document.createElement("video");
+      el.src = item.src; el.controls = true;
+    } else {
+      el = document.createElement("img");
+      el.src = item.src; el.alt = item.caption || "";
+    }
+    mediaBox.appendChild(el);
+    captionEl.textContent = item.caption || "";
+    counterEl.textContent = (index + 1) + " / " + items.length;
+  }
+  function open(key) {
+    items = PROJECT_GALLERIES[key] || [];
+    if (!items.length) return;
+    index = 0; render();
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+    mediaBox.innerHTML = ""; // stops any playing video
+  }
+  function step(d) { index = (index + d + items.length) % items.length; render(); }
+
+  document.querySelectorAll(".project-card[data-project]").forEach(function (card) {
+    card.addEventListener("click", function () { open(card.getAttribute("data-project")); });
+  });
+  lightbox.querySelectorAll("[data-close]").forEach(function (el) { el.addEventListener("click", close); });
+  document.getElementById("lbPrev").addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
+  document.getElementById("lbNext").addEventListener("click", function (e) { e.stopPropagation(); step(1); });
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+})();

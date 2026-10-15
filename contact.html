@@ -48,7 +48,10 @@
   <section class="section section-dark">
     <div class="container">
       <div class="contact-grid">
-        <form class="quote-form" id="quoteForm" novalidate>
+        <form class="quote-form" id="quoteForm" name="site-visit" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+               <input type="hidden" name="form-name" value="site-visit" />
+               <p style="position:absolute;left:-9999px;" aria-hidden="true"><label>Leave this empty: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
           <div class="form-row">
             <label>Full name
               <input type="text" name="name" required placeholder="Your name" />

@@ -89,6 +89,7 @@ fetch("/", {
   formNote.className = "form-note ok";
   form.reset();
 });
+});
 
 }
 

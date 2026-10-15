@@ -346,3 +346,70 @@ html, body { overflow-x: clip; }
 .leader-card blockquote { font-style: italic; color: #e8e4da; border-left: 3px solid var(--brand); padding-left: 16px; margin: 0 0 18px; font-size: 16px; line-height: 1.6; }
 .leader-card p:last-child { color: #b9b4a8; font-size: 15px; line-height: 1.7; margin: 0; }
 @media (max-width: 760px) { .leaders-grid { grid-template-columns: 1fr; } }
+
+
+/* ---------- Vision / legacy ---------- */
+.vision-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 48px;
+  align-items: center;
+  background: #1d2027;
+  border: 1px solid #2b2f38;
+  border-radius: 16px;
+  padding: 48px;
+}
+.vision-photo { text-align: center; }
+.vision-photo img {
+  width: 100%;
+  border-radius: 12px;
+  border: 3px solid var(--brand);
+  display: block;
+}
+.vision-photo h2 {
+  color: #f5f2ea;
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 20px 0 8px;
+}
+.vision-photo h2 .honorific {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a49e90;
+  margin-bottom: 8px;
+}
+.vision-photo .vision-dates {
+  color: #8f8a7e;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.vision-role {
+  color: #8f8a7e;/*var(--brand);*/
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.vision-text p {
+  color: #b9b4a8;
+  font-size: 20px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.vision-text p:last-child { margin-bottom: 0; }
+@media (max-width: 860px) {
+  .vision-grid { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
+  .vision-photo img { max-width: 280px; margin: 0 auto; }
+}
+
+.vision-photo .plaque-role {
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 14px 0 0;
+}
+

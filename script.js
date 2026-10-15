@@ -54,26 +54,42 @@ if (form) {
     }
 
     var data = new FormData(form);
-    data.append("form-name", form.getAttribute("name"));
-    var body = [
-      "Name: " + data.get("name"),
-      "Phone: " + data.get("phone"),
-      "Email: " + data.get("email"),
-      "Project type: " + data.get("type"),
-      "",
-      data.get("details")
-    ].join("\n");
+data.append("form-name", form.getAttribute("name"));
 
-    // Opens the visitor's email client with the site-visit request pre-filled.
-    window.location.href =
-      "mailto:bharadwajbuildingconstructions@gmail.com?subject=" +
-      encodeURIComponent("Site visit request - " + data.get("type")) +
-      "&body=" + encodeURIComponent(body);
+function mailtoFallback() {
+  var body = [
+    "Name: " + data.get("name"),
+    "Phone: " + data.get("phone"),
+    "Email: " + data.get("email"),
+    "Project type: " + data.get("type"),
+    "",
+    data.get("details")
+  ].join("\n");
+  window.location.href =
+    "mailto:bharadwajbuildingconstructions@gmail.com?subject=" +
+    encodeURIComponent("Site visit request - " + data.get("type")) +
+    "&body=" + encodeURIComponent(body);
+}
 
-    formNote.textContent = "Opening your email app to send the request…";
-    formNote.className = "form-note ok";
-    form.reset();
-  });
+formNote.textContent = "Sending…";
+formNote.className = "form-note";
+
+fetch("/", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: new URLSearchParams(data).toString()
+}).then(function (res) {
+  if (!res.ok) throw new Error("submit failed");
+  formNote.textContent = "Thanks! Your request has been sent. We'll call you back within one business day.";
+  formNote.className = "form-note ok";
+  form.reset();
+}).catch(function () {
+  mailtoFallback();
+  formNote.textContent = "Opening your email app to send the request…";
+  formNote.className = "form-note ok";
+  form.reset();
+});
+
 }
 
 // Project gallery lightbox (projects page only)

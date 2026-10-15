@@ -54,6 +54,7 @@ if (form) {
     }
 
     var data = new FormData(form);
+    data.append("form-name", form.getAttribute("name"));
     var body = [
       "Name: " + data.get("name"),
       "Phone: " + data.get("phone"),

@@ -38,7 +38,7 @@
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-eyebrow">Building Contractor &middot; Jaggaiahpet, Andhra Pradesh</p>
+      <p class="hero-eyebrow"> Andhra Pradesh &amp; Telangana</p>
       <h1>We Build Homes That<br />Last Generations.</h1>
       <p class="hero-sub">Residential and commercial construction around Jaggaiahpet &mdash; transparent per-sq-ft
         estimates, branded materials, and stage-wise payments you can track.</p>
@@ -47,7 +47,7 @@
         <a href="projects.html" class="btn btn-ghost btn-lg">View Our Work</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><strong>15+</strong><span>Projects completed</span></div>
+        <div class="stat"><strong>17+</strong><span>Projects completed</span></div>
         <div class="stat"><strong>100%</strong><span>Transparent, itemised estimates</span></div>
         <div class="stat"><strong>1-yr</strong><span>Free post-handover support</span></div>
       </div>
@@ -107,28 +107,31 @@
           href="https://www.instagram.com/bharadwajconstructions" target="_blank" rel="noopener"
           class="inline-link">@bharadwajconstructions</a>.</p>
       <div class="projects-grid">
-        <article class="project-card">
+        <article class="project-card" data-project="sri-nilayam">
           <img src="images/sri_nilayam.jpeg" alt="Independent house built by Bharadwaj Building Construction"
             loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Residential &middot; Jaggaiahpet</p>
             <h3>Sri Nilayam</h3>
             <p>2-storey west-facing independent house on a 210 sq yd plot &mdash; our quality benchmark in a premium
               neighbourhood.</p>
           </div>
         </article>
-        <article class="project-card">
+        <article class="project-card"  data-project="happy-home">
           <img src="images/happy_home.jpeg" alt="Duplex home interior finishing" loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Residential &middot; Dollars Colony</p>
             <h3>Happy Home Duplex</h3>
             <p>West-facing 2-storey duplex with elegant interiors, outstanding exteriors and high-quality construction.
             </p>
           </div>
         </article>
-        <article class="project-card">
+        <article class="project-card"  data-project="bhuvanagiri">
           <img src="images/modal_home.jpeg" alt="Independent houses in a gated community" loading="lazy" />
           <div class="project-body">
+            <span class="gallery-hint">View gallery &rarr;</span>
             <p class="project-tag">Gated Community &middot; Torraguntapalem</p>
             <h3>Bhuvanagiri Township Homes</h3>
             <p>2 &amp; 3 BHK independent houses in a secure gated community &mdash; premium construction, ready to
@@ -192,14 +195,43 @@
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Bharadwaj Building Construction &middot; Jaggaiahpet, Andhra Pradesh</p>
+      <p>&copy; <span id="year"></span> Bharadwaj Building Constructions &middot; Jaggaiahpet, Andhra Pradesh</p>
       <p class="footer-links"><a href="services.html">Services</a> &middot; <a href="projects.html">Projects</a>
         &middot; <a href="about.html">About</a> &middot; <a href="contact.html">Contact</a> &middot; <a
           href="https://www.instagram.com/bharadwajconstructions" target="_blank" rel="noopener">Instagram</a></p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project gallery">
+  <div class="lightbox-backdrop" data-close></div>
+  <figure class="lightbox-box">
+    <button class="lightbox-close" data-close aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lbPrev" aria-label="Previous">&#10094;</button>
+    <div class="lightbox-media" id="lbMedia"></div>
+    <button class="lightbox-next" id="lbNext" aria-label="Next">&#10095;</button>
+    <figcaption>
+      <p class="lightbox-caption" id="lbCaption"></p>
+      <p class="lightbox-counter" id="lbCounter"></p>
+    </figcaption>
+  </figure>
+</div>
+  <script>
+// Gallery data — add/remove photos & videos per project here.
+const PROJECT_GALLERIES = {
+  "sri-nilayam": [
+    { type: "image", src: "images/sri_nilayam.jpeg", caption: "Front elevation" },
+    { type: "image", src: "images/project-kitchen.jpg", caption: "Kitchen" }
+  ],
+  "happy-home": [
+    { type: "image", src: "images/happy_home.jpeg", caption: "Happy Home Duplex, Dollars Colony" },
+    { type: "image", src: "images/site_work.jpeg", caption: "Site Work" }
+  ],
+  "bhuvanagiri": [
+    { type: "image", src: "images/modal_home.jpeg", caption: "Bhuvanagiri Township" },
+    { type: "video", src: "images/model_video.mp4", caption: "Model home walkthrough" }
+  ]
+};
+</script>
+<script src="script.js"></script>
 </body>
 
 </html>

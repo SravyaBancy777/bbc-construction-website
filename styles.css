@@ -279,6 +279,7 @@ img { max-width: 100%; display: block; }
 .contact-info p { margin-bottom: 16px; color: #cfc9bc; font-size: 16px; }
 .contact-info a { color: var(--brand); text-decoration: none; font-weight: 600; }
 .contact-info a:hover { text-decoration: underline; }
+.contact-info a { overflow-wrap: anywhere; }
 .ig-note { font-size: 14px; color: #8f8a7d; }
 
 /* ---------- Footer ---------- */
@@ -306,6 +307,13 @@ img { max-width: 100%; display: block; }
   .hero { min-height: auto; padding: 130px 0 64px; }
   .page-hero { padding: 130px 0 56px; }
 }
+@media (max-width: 480px) {
+  .header-inner { gap: 12px; }
+  .site-header .logo { font-size: 15px; }
+  .site-header .logo img { height: 34px; width: auto; }
+}
+html, body { overflow-x: clip; }
+
 
 /* ---------- Project gallery lightbox ---------- */
 .project-card[data-project] { cursor: pointer; }

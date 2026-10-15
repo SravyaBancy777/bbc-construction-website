@@ -117,18 +117,21 @@ fetch("/", {
     captionEl.textContent = item.caption || "";
     counterEl.textContent = (index + 1) + " / " + items.length;
   }
-  function open(key) {
-    items = PROJECT_GALLERIES[key] || [];
-    if (!items.length) return;
-    index = 0; render();
-    lightbox.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-  function close() {
-    lightbox.classList.remove("open");
-    document.body.style.overflow = "";
-    mediaBox.innerHTML = ""; // stops any playing video
-  }
+ function open(key) {
+  items = PROJECT_GALLERIES[key] || [];
+  if (!items.length) return;
+  index = 0;
+  render();
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function close() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+  mediaBox.innerHTML = ""; // stops any playing video
+}
+
   function step(d) { index = (index + d + items.length) % items.length; render(); }
 
   document.querySelectorAll(".project-card[data-project]").forEach(function (card) {
